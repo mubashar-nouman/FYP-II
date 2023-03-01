@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Iceland&family=Poppins:wght@100&family=Quicksand:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css">
+    <link rel="shortcut icon" href="../static/images/favicon.png" type="image/x-icon">
+    <link rel="stylesheet" href="../static/css/style.css" />
+    <link rel="stylesheet" href="../static//css/chat.css">
+  <title>AI Healthcare Chatbot</title>
+</head>
+
+<body>
+  <!-- ########## NAVBAR STARTED ########## -->
+  <nav>
+    <div class="navbar_container" id="navbar">
+      <a class="logo" href="/index.html"><img src="../static//images/logo.png" alt=""></a>
+      <div class="mobile-menu">
+        <div class="line1"></div>
+        <div class="line2"></div>
+        <div class="line3"></div>
+      </div>
+      <ul class="nav-list">
+        <li><a href="#navbar">Home</a></li>
+        <li><a href="#aboutID">About</a></li>
+        <li><a href="#chatID">Chat</a></li>
+        <li><a href="#aidID">FirstAid</a></li>
+        <li><a href="#contactID">Contact</a></li>
+        <li><h5>{{ full_name }}!</h5></li>
+        <a href="{{ url_for('logout') }}" class="btn btn-warning logout">Logout</a>
+      </ul>
+    </div>
+  </nav>
+  <!-- ########## NAVBAR ENDED ########## -->
+
+  <!-- ########## HERO SECTION STARTED ########### -->
+  <header>
+    <div class="header_container">
+      <div class="left_part">
+        <h1>AI HEALTHCARE CHATBOT</h1>
+        <p>AI Healthcare Chatbot is a web application that helps you to get the information about diseases and first aid
+          tips</p>
+        <a href="#" class="hero_btn">Read More</a>
+      </div>
+      <div class="right_part">
+        <img src="../static//images/hero_image.png" alt="">
+      </div>
+    </div>
+  </header>
+  <!-- ########## HERO SECTION ENDED ########### -->
+
+  <!-- ########## ABOUT SECTION STARTED ########### -->
+  <section id="aboutID">
+    <div class="about_main">
+      <h3 class="heading"><span>About </span>Team</h3>
+      <div class="about_container">
+        <div class="cards">
+          <img src="../static//images/card-2.jpg">
+          <div class="details">
+            <h3>Mubashar</h3>
+            <p>Web Developer</p>
+            <div class="social-links">
+              <a href="#"><i class="uil uil-linkedin"></i></a>
+              <a href=""><i class="uil uil-github"></i></a>
+              <a href=""><i class="uil uil-twitter-alt"></i></a>
+              <a href=""><i class="uil uil-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <img src="../static//images/card-1.jpg">
+          <div class="details">
+            <h3>Umar</h3>
+            <p>Backend Developer</p>
+            <div class="social-links">
+              <a href="#"><i class="uil uil-linkedin"></i></a>
+              <a href=""><i class="uil uil-github"></i></a>
+              <a href=""><i class="uil uil-twitter-alt"></i></a>
+              <a href=""><i class="uil uil-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <img src="../static//images/card-3.jpeg">
+          <div class="details">
+            <h3>Suleman</h3>
+            <p>Content Writer</p>
+            <div class="social-links">
+              <a href="#"><i class="uil uil-linkedin"></i></a>
+              <a href=""><i class="uil uil-github"></i></a>
+              <a href=""><i class="uil uil-twitter-alt"></i></a>
+              <a href=""><i class="uil uil-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+        <div class="cards">
+          <img src="../static//images/card-4.jpeg">
+          <div class="details">
+            <h3>Hassan</h3>
+            <p>ML Developer</p>
+            <div class="social-links">
+              <a href="#"><i class="uil uil-linkedin"></i></a>
+              <a href=""><i class="uil uil-github"></i></a>
+              <a href=""><i class="uil uil-twitter-alt"></i></a>
+              <a href=""><i class="uil uil-whatsapp"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ########## ABOUT SECTION ENDED ########### -->
+
+  <!-- ########## CHAT SECTION STARTED ########### -->
+  <section class="chat_section" id="chatID">
+    <h3 class="heading"><span>Chat </span>Me</h3>
+    <div class="chat_container">
+      <div class="chat-bar-collapsible">
+        <button id="chat-button" type="button" class="collapsible active">Chat with us!
+          <i id="chat-icon" style="color: #fff;" class="fa fa-fw fa-comments-o"></i>
+        </button>
+        <div class="content">
+          <div class="full-chat-block">
+            <!-- Message Container -->
+            <div class="outer-container">
+              <div class="chat-container">
+                <!-- Messages -->
+                <div id="chatbox">
+                  <h5 id="chat-timestamp"></h5>
+                  <p id="botStarterMessage" class="botText"><span>Loading...</span></p>
+                </div>
+                <!-- User input box -->
+                <div class="chat-bar-input-block">
+                  <div id="userInput">
+                    <input id="textInput" class="input-box" type="text" name="msg"
+                      placeholder="Tap 'Enter' to send a message">
+                    <p></p>
+                  </div>
+                  <div class="chat-bar-icons">
+                    <i id="chat-icon" style="color: crimson;" class="fa fa-fw fa-heart" onclick="heartButton()"></i>
+                    <i id="chat-icon" style="color: #333;" class="fa fa-fw fa-send" onclick="sendButton()"></i>
+                  </div>
+                </div>
+                <div id="chat-bar-bottom">
+                  <p></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ########## CHAT SECTION ENDED ########### -->
+
+  <!-- ########## FIRSTAID SECTION STARTED ######## -->
+  <section id="aidID">
+    <h3 class="heading"><span>First </span>Aid</h3>
+    <div class="aid_container row flex justify-content-center">
+      <div class="card m-3 col-md-3" style="width: 18rem;">
+        <img class="card-img-top"
+          src="data:image/jpeg;base64,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"
+          alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Drowing First Aid</h5>
+          <p class="card-text">A comprehensive article on drowning prevention, safety measures, and related topics.</p>
+          <a href="https://www.redcross.org.uk/stories/health-and-social-care/first-aid/five-things-to-know-about-drowning-in-open-water"
+            class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card m-3 col-md-3" style="width: 18rem;">
+        <img class="card-img-top img" src="https://i.ytimg.com/vi/qJzcv690pa8/maxresdefault.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Snake Bite Aid</h5>
+          <p class="card-text">Keep the bitten person still and calm. This can slow down the spread of venom if the
+            snake is venomous.</p>
+          <a href="https://www.cdc.gov/disasters/snakebite.html#:~:text=Keep%20the%20bitten%20person%20still,Emergency%20Medical%20Services%20(EMS)."
+            class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+      <div class="card m-3 col-md-3" style="width: 18rem;">
+        <img class="card-img-top"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTO5njCjNlBEBdU0VvtHffXGXLtRH2hdAQ6EA&usqp=CAU"
+          alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title">Low Blood Pressure Aid</h5>
+          <p class="card-text">Get up slowly from sitting to standing. Take care when getting out of bed, move slowly
+            from lying to sitting to standing.</p>
+          <a href="https://www.nhs.uk/conditions/low-blood-pressure-hypotension/" class="btn btn-primary">Read More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ########## FIRSTAID SECTION ENDED ######## -->
+
+  <!-- ########## CONTACT SECTION STARTED ########### -->
+
+  <section id="contactID">
+    <div class="contain">
+      <div class="wrapper">
+        <div class="form">
+          <h4>GET IN TOUCH</h4>
+          <h2 class="form-headline">Send us a message</h2>
+          <form id="submit-form" action="https://formspree.io/f/xyyakyya" method="POST">
+            <p>
+              <input id="name" class="form-input" type="text" name="name" placeholder="Your Name*">
+              <small class="name-error"></small>
+            </p>
+            <p>
+              <input id="email" class="form-input" type="email" name="email" placeholder="Your Email*">
+              <small class="name-error"></small>
+            </p>
+            <p class="full-width">
+              <input id="company-name" class="form-input" type="text" name="subject" placeholder="Subject*" required>
+              <small></small>
+            </p>
+            <p class="full-width">
+              <textarea minlength="20" id="message" cols="70" rows="7" name="message" placeholder="Your Message*"
+                required></textarea>
+              <small></small>
+            </p>
+            <p class="full-width">
+              <input type="submit" class="submit-btn" value="Submit" onclick="checkValidations()">
+              <button class="reset-btn" onclick="reset()">Reset</button>
+            </p>
+          </form>
+        </div>
+        <div class="contacts contact-wrapper">
+          <ul>
+            <li>Need help? Our chatbot is here for you. If you are feeling any issue while using, you can contact us
+              here.</li>
+            <span class="hightlight-contact-info">
+              <li class="email-info"><i class="fa fa-envelope" aria-hidden="true"></i> info@mubitech.com</li>
+              <li><i class="fa fa-phone" aria-hidden="true"></i> <span class="highlight-text">+92 308 7031050</span>
+              </li>
+            </span>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ########## CONTACT SECTION ENDED ########### -->
+
+  <!-- ########## FOOTER SECTION STARTED ########### -->
+  <footer>
+    <div class="footer">
+      <p>©️ 2023 All Rights Reserved | Made with ❤️ by Mubashar, Umar & Hassan</p>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script src="../static/js/navbar.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/scripts/responses.js"></script>
+  <script src="../static/js/chat.js"></script>
+  <script src="../static/js/contact.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

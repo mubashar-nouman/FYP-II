@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="shortcut icon" href="../static/images/favicon.png" type="image/x-icon">
+    <title>Login - AI HealthCare Chatbot</title>
+    <style>
+      body {
+        background-color: #f8f9fa;
+      }
+      .container {
+        margin-top: 50px;
+        max-width: 500px;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 30px;
+        box-shadow: 0 0 20px rgba(0,0,0,.1);
+      }
+      h1 {
+        margin-bottom: 30px;
+      }
+      label {
+        font-weight: 500;
+      }
+      .form-group {
+        margin-bottom: 20px;
+      }
+      .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+      }
+      .btn-primary:hover {
+        background-color: #0069d9;
+        border-color: #0062cc;
+      }
+      .text-danger {
+        font-size: 0.8rem;
+        margin-top: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="text-center">Login</h1>
+      <form method="POST">
+        {{ form.csrf_token }}
+        <div class="form-group">
+          <label for="username">Username</label>
+          <input type="text" class="form-control" id="username" name="username">
+          {% for error in form.username.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %}
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" class="form-control" id="password" name="password">
+          {% for error in form.password.errors %}
+            <div class="text-danger">{{ error }}</div>
+          {% endfor %}
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Submit</button>
+      </form>
+      <div class="my-4">
+        <div class="text-center">
+          <p class="mb-0">Don't have an account? <a href="/">Create New</a></p>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
