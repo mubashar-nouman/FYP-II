@@ -6,6 +6,7 @@
   box-sizing: border-box;
 }
 html {
+  width: 100%;
   scroll-behavior: smooth;
 }
 
@@ -23,9 +24,10 @@ html {
   right: 0;
   z-index: 999;
   box-shadow: 0 2px 4px 0 rgba(0,0,0,.2);
+  padding: 0 1rem;
 }
 .navbar_container h5{
-  color: white;
+  color: yellow;
 }
 
 .navbar_container a {
@@ -135,7 +137,7 @@ html {
   position: relative;
 }
 .left_part{
-  width: 50%;
+  width: 40%;
   height: 100%;
   /* border: 2px solid red; */
   display: flex;
@@ -172,9 +174,11 @@ html {
   font-weight: 700;
 }
 .hero_btn:hover{
+  text-decoration: none;
   background: #085fbd;
   color: #fff;
   border: 1px solid #085fbd;
+  transition: all 0.5s ease;
 }
 .right_part{
   width: 50%;
